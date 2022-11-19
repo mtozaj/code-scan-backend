@@ -13,11 +13,11 @@ app.use(morgan("dev"));
 
 // main endpoint
 app.get("/compile", async (req, res) => {
-  res.status(200).json({ output: "YI LONG MA" });
+  res.status(200).json({ output: "YI LONG M (The real Elon)" });
 });
 
 app.get("/image/convert", async (req, res) => {
-  res.status(200).json({ text: "Hello Hello Hello" });
+  res.status(200).json({ text: "Let's win the hackathon!!" });
 });
 
 const port = process.env.PORT || 5000;
