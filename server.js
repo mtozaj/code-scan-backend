@@ -13,7 +13,7 @@ app.use(morgan("dev"));
 
 // main endpoint
 app.get("/compile", async (req, res) => {
-  res.status(200).json({ output: "Hello World" });
+  res.status(200).json({ output: "CODESCAN" });
 });
 
 app.get("/image/convert", async (req, res) => {
