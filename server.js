@@ -13,7 +13,7 @@ app.use(morgan("dev"));
 
 // main endpoint
 app.get("/compile", async (req, res) => {
-  res.status(200).json({ output: "CODESCAN" });
+  res.status(200).json({ output: "YI LONG MA" });
 });
 
 app.get("/image/convert", async (req, res) => {
