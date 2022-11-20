@@ -19,7 +19,7 @@ const client = new vision.ImageAnnotatorClient({
 //TEST
 app.use(cors());
 app.use(bodyParse.urlencoded({ extended: false }));
-app.use(bodyParse.json());
+app.use(bodyParse.json({ limit: "50mb" }));
 app.use(morgan("dev"));
 
 // 0 = C++, 1 = C, 2 = Javascript (nodejs)
@@ -52,16 +52,25 @@ app.post("/image/upload", async (req, res, next) => {
   }
 });
 
-// Compile code
-app.post("/compile", async (req, res) => {
-  var request = require("request");
-  const { languageID } = req.body;
+// code detection
+app.get("/code_detection", async (req, res) => {
   try {
     const [result] = await client.documentTextDetection("./images/foo.png");
     const fullTextAnnotation = result.fullTextAnnotation;
-    console.log("text: " + fullTextAnnotation.text);
+    res.status(200).json({ output: fullTextAnnotation.text });
+  } catch (e) {
+    console.log(e);
+  }
+  // 0 = C++ (versionIndex 4), 1 = C, 2 = Javascript (nodejs)
+});
+
+// Compile code
+app.post("/compile", async (req, res) => {
+  var request = require("request");
+  const { languageID, script } = req.body;
+  try {
     var program = {
-      script: fullTextAnnotation.text,
+      script,
       language: getLanguage(languageID),
       versionIndex: "4",
       clientId: "d0c25492b573abf6ac0f5999d0f62d98",
@@ -89,5 +98,5 @@ app.get("/", async (req, res) => {
   res.sendFile(path.join(__dirname, "frontend/index.html"));
 });
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => console.log("Running Server at " + port));

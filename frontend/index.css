@@ -5,21 +5,29 @@ body{
 .topnav{
     background-color: rgb(107, 144, 230);
     padding: 14px 16px;
+    text-align: center;
 }
 .topnav a{
     text-align: center;
 	color: white;
-	font-size: 18px;
+	font-size: 40px;
 	text-decoration: none;
 	padding: 5px;
 }
+.language {
+    margin-top: 40px;
+    font-weight: bold;
+}
+.container{
+    width:100%;
+    display:flex;  /* for display it's child div beside each other */
+}
+.first-div,.second-div{
+    width:50%;    /* for divide container into 2 equal divs  */
+}
 .upload {
     padding: 15px;
-    margin: 10px;
-}
-
-#upload-photo-btn{
-    display: none;
+    margin-top: 10px;
 }
 
 .take-photo{
@@ -28,14 +36,14 @@ body{
 #click-photo{
     padding: 5px;
 }
-#start-camera{
+#start-camera, #compile-btn, #detect-btn {
     padding: 5px;
 }
 #upload-photo-btn{
     padding: 5px;
 }
 
-#canvas{
+#preview-img{
     display: none;
 }
 button {
@@ -53,20 +61,18 @@ button {
     transform: rotateY(180deg);
     -webkit-transform:rotateY(180deg);
     -moz-transform:rotateY(180deg);
+    background-color: dimgray;
   }
 
   #canvas{
+    position: absolute;
     transform: rotateY(180deg);
     -webkit-transform:rotateY(180deg); /* Safari and Chrome */
     -moz-transform:rotateY(180deg);
   }
 
-.compiled-output{
-    display: none;
-}
-.compiled-output{
-    display: none;
-}
-.lang-option{
-    display: none;
-}
+  .detection-output{
+    width: 80%;
+    height: 200px;
+    border: solid black 1px;
+  }
