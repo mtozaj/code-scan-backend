@@ -63,7 +63,7 @@ app.get("/code_recognition", async (req, res) => {
 });
 
 // Compile code
-app.get("/compile", async (req, res) => {
+app.post("/compile", async (req, res) => {
   var request = require("request");
   const { languageID } = req.body;
 

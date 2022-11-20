@@ -15,6 +15,7 @@
                 <input type="file" class="form-control" id="input-image" name="input-image" accept="image/*">
             </div>
         </div>
+        <button type="submit" id="input-photo-btn">Use this Photo</button>
     </div>
     <div class="take-photo">
         <div class="start-cam">
@@ -27,6 +28,25 @@
             <canvas id="canvas" width="320" height="240"></canvas>
             <button type="button" id="upload-photo-btn">Use this Photo</button>
         </div>
+    </div>
+    <div class="code-recognition">
+
+    </div>
+    <div class="lang-option">
+        <form action="" method="GET">
+            <fieldset>
+                <label>Choose a language</label><br>
+                <select name="lang" id="lang">
+                    <option value="0">C++</option>
+                    <option value="1">C</option>
+                    <option value="2">Javascript</option>
+                </select><br><br>
+            </fieldset>
+            <button id="compile-btn" type="button">Compile Code</button>
+        </form>
+    </div>
+    <div class="compiled-output">
+        
     </div>
         
 </body>

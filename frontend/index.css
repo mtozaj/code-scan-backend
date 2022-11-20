@@ -60,3 +60,13 @@ button {
     -webkit-transform:rotateY(180deg); /* Safari and Chrome */
     -moz-transform:rotateY(180deg);
   }
+
+.compiled-output{
+    display: none;
+}
+.compiled-output{
+    display: none;
+}
+.lang-option{
+    display: none;
+}

@@ -4,6 +4,7 @@ window.onload = () => {
   let click_button = document.querySelector("#click-photo");
   let canvas = document.querySelector("#canvas");
   let upload_btn = document.querySelector("#upload-photo-btn");
+  let compile_btn = document.querySelector("#compile-btn");
   var image_data_url;
 
   camera_button.addEventListener("click", async function () {
@@ -16,6 +17,8 @@ window.onload = () => {
     document.querySelector("#video").style.display = "initial";
     document.querySelector("#canvas").style.display = "none";
     document.querySelector("#upload-photo-btn").style.display = "none";
+    document.querySelector(".compiled-output").style.display = "none";
+    document.querySelector(".lang-option").style.display = "none";
   });
 
   click_button.addEventListener("click", function () {
@@ -28,11 +31,11 @@ window.onload = () => {
     document.querySelector("#upload-photo-btn").style.display = "initial";
     document.querySelector("#canvas").style.display = "initial";
     document.querySelector("#video").style.display = "none";
+    document.querySelector(".compiled-output").style.display = "none";
+    document.querySelector(".lang-option").style.display = "none";
   });
 
   upload_btn.addEventListener("click", function () {
-    //const url = "data:image/png;base6....";
-    //var httpPost = new XMLHttpRequest();
     var data = JSON.stringify({ base64image: image_data_url }); // stringify({})
     fetch("image/upload", {
       method: "POST",
@@ -42,9 +45,25 @@ window.onload = () => {
       },
       body: data,
     });
-    // httpPost.open("POST", path, false);
-    // Set the content type of the request to json since that's what's being sent
-    // httpPost.setRequestHeader("Content-Type", "application/json");
-    //httpPost.send(data);
+    document.querySelector(".lang-option").style.display = "initial";
+  });
+  compile_btn.addEventListener("click", function () {
+    var e = document.getElementById("lang");
+    var value = parseInt(e.value);
+    var data = JSON.stringify({ languageID: value });
+    fetch("/compile", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: data,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        document.querySelector(".compiled-output").style.display = "initial";
+        console.log(data);
+        document.querySelector(".compiled-output").textContent = data.output;
+      });
   });
 };
