@@ -25,10 +25,9 @@ app.get("/compile", async (req, res) => {
 });
 
 app.get("/image/convert", async (req, res) => {
-  const [result] = await client.documentTextDetection("drake.jpg");
-const fullTextAnnotation = result.fullTextAnnotation;
-console.log(fullTextAnnotation.text);
-
+  const [result] = await client.documentTextDetection("handwrittenCode.jpeg");
+  const fullTextAnnotation = result.fullTextAnnotation;
+  console.log(fullTextAnnotation.text);
   res.status(200).json({ text: fullTextAnnotation.text });
 });
 
