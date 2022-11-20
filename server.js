@@ -16,10 +16,11 @@ const client = new vision.ImageAnnotatorClient({
   keyFilename: "key.json",
 });
 
+
 //TEST
 app.use(cors());
 app.use(bodyParse.urlencoded({ extended: false }));
-app.use(bodyParse.json());
+app.use(bodyParse.json({limit: '50mb'}));
 app.use(morgan("dev"));
 
 // 0 = C++, 1 = C, 2 = Javascript (nodejs)
@@ -95,5 +96,5 @@ app.get("/", async (req, res) => {
   res.sendFile(path.join(__dirname, "frontend/index.html"));
 });
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => console.log("Running Server at " + port));
