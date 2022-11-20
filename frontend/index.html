@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="index.js"> </script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="topnav">
+		<a id="title">SnapCode</a>
+	</div>
+    <div class="upload">
+        <h4 class="upload-title">Please Upload Image</h4>
+        <div class="upload-body">
+             <div class="form-group">
+                <input type="file" class="form-control" id="input-image" name="input-image" accept="image/*">
+            </div>
+        </div>
+    </div>
+    <div class="take-photo">
+        <div class="start-cam">
+            <button type="button" id="start-camera">Start Camera</button><br><br>
+            <video id="video" width="320" height="240" autoplay></video>
+            <canvas id="canvas" width="320" height="240"></canvas><br><br>
+        </div>
+        <div class="snap-photo">
+            <button type="button" id="click-photo">Take Photo</button>
+            <canvas id="canvas" width="320" height="240"></canvas>
+            <button type="button" id="upload-photo-btn">Use this Photo</button>
+        </div>
+    </div>
+        
+</body>
+</html>
