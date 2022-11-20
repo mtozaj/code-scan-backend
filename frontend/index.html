@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="index.js"> </script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="topnav">
+		<a id="title">SnapCode</a>
+	</div>
+    <div class="upload">
+        <h4 class="upload-title">Please Upload Image</h4>
+        <div class="upload-body">
+             <div class="form-group">
+                <input type="file" class="form-control" id="input-image" name="input-image" accept="image/*">
+            </div>
+        </div>
+        <button type="submit" id="input-photo-btn">Use this Photo</button>
+    </div>
+    <div class="take-photo">
+        <div class="start-cam">
+            <button type="button" id="start-camera">Start Camera</button><br><br>
+            <video id="video" width="320" height="240" autoplay></video>
+            <canvas id="canvas" width="320" height="240"></canvas><br><br>
+        </div>
+        <div class="snap-photo">
+            <button type="button" id="click-photo">Take Photo</button>
+            <canvas id="canvas" width="320" height="240"></canvas>
+            <button type="button" id="upload-photo-btn">Use this Photo</button>
+        </div>
+    </div>
+    <div class="code-recognition">
+
+    </div>
+    <div class="lang-option">
+        <form action="" method="GET">
+            <fieldset>
+                <label>Choose a language</label><br>
+                <select name="lang" id="lang">
+                    <option value="0">C++</option>
+                    <option value="1">C</option>
+                    <option value="2">Javascript</option>
+                </select><br><br>
+            </fieldset>
+            <button id="compile-btn" type="button">Compile Code</button>
+        </form>
+    </div>
+    <div class="compiled-output">
+        
+    </div>
+        
+</body>
+</html>

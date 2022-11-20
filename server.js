@@ -52,23 +52,14 @@ app.post("/image/upload", async (req, res, next) => {
   }
 });
 
-app.get("/code_recognition", async (req, res) => {
-  try {
-    const [result] = await client.documentTextDetection("foo.png");
-    const fullTextAnnotation = result.fullTextAnnotation;
-    res.status(200).json({ output: fullTextAnnotation.text });
-  } catch (e) {
-    console.log(e);
-  }
-});
-
 // Compile code
 app.post("/compile", async (req, res) => {
   var request = require("request");
   const { languageID } = req.body;
   try {
-    const [result] = await client.documentTextDetection("foo.png");
+    const [result] = await client.documentTextDetection("./images/foo.png");
     const fullTextAnnotation = result.fullTextAnnotation;
+    console.log("text: " + fullTextAnnotation.text);
     var program = {
       script: fullTextAnnotation.text,
       language: getLanguage(languageID),
@@ -84,9 +75,7 @@ app.post("/compile", async (req, res) => {
         json: program,
       },
       function (error, response, body) {
-        console.log("error:", error);
-        console.log("statusCode:", response && response.statusCode);
-        console.log("body:", body);
+        console.log(body);
         res.status(200).json({ output: body.output });
       }
     );

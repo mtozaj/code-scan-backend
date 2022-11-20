@@ -1,0 +1,72 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+.topnav{
+    background-color: rgb(107, 144, 230);
+    padding: 14px 16px;
+}
+.topnav a{
+    text-align: center;
+	color: white;
+	font-size: 18px;
+	text-decoration: none;
+	padding: 5px;
+}
+.upload {
+    padding: 15px;
+    margin: 10px;
+}
+
+#upload-photo-btn{
+    display: none;
+}
+
+.take-photo{
+    padding: 10px;
+}
+#click-photo{
+    padding: 5px;
+}
+#start-camera{
+    padding: 5px;
+}
+#upload-photo-btn{
+    padding: 5px;
+}
+
+#canvas{
+    display: none;
+}
+button {
+    background-color: rgb(107, 144, 230);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin: 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+  #video{
+    transform: rotateY(180deg);
+    -webkit-transform:rotateY(180deg);
+    -moz-transform:rotateY(180deg);
+  }
+
+  #canvas{
+    transform: rotateY(180deg);
+    -webkit-transform:rotateY(180deg); /* Safari and Chrome */
+    -moz-transform:rotateY(180deg);
+  }
+
+.compiled-output{
+    display: none;
+}
+.compiled-output{
+    display: none;
+}
+.lang-option{
+    display: none;
+}
