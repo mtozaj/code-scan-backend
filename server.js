@@ -13,7 +13,11 @@ app.use(morgan("dev"));
 
 // main endpoint
 app.get("/compile", async (req, res) => {
-  res.status(200).json({ output: "YI LONG M (The real Elon)" });
+  const code = "print(3)";
+  // JDOOLE API
+  
+  
+  res.status(200).json({ output: "3" });
 });
 
 app.get("/image/convert", async (req, res) => {
